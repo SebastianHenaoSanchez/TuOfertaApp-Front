@@ -1,11 +1,65 @@
-<div class="form-group ">
-    <label class="control-label " for="email">
-   Email
-  </label>
-    <div class="input-group">
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-envelope"></span>
+{{message}}
+
+
+<div *ngFor="let a of persona">
+    <!-- (ngSubmit) usamos esta para hacer el post al dar click en el boton  -->
+    <form (ngSubmit)="crear()" class="container animacion velocidad desvanecido">
+        <div class="form-group col-md-6">
+            <label for="InputEmail">Email address</label>
+            <!--[(ngModel)] con esto le llevamos los datos al Json -->
+            <input [(ngModel)]="a.correo" name="correo" type="email" class="form-control " placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <input class="form-control" id="email" name="email" type="text" />
-    </div>
+
+
+
+        <!--    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> -->
+
+        <div class="form-group col-md-6">
+            <label for="InputNombre">Nombre</label>
+            <input [(ngModel)]="a.nombre" name="nombre" type="text" class="form-control" placeholder="Enter Nombre">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputApellidos">Apellidos</label>
+            <input [(ngModel)]="a.apellidos" name="apellidos" type="text" class="form-control " placeholder="Enter Apellidos">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputTelefono">Telefono</label>
+            <input [(ngModel)]="a.telefono" name="telefono" type="text" class="form-control " placeholder="Enter Telefono">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputGenero">Genero</label>
+            <input [(ngModel)]="a.genero" name="genero" type="text" class="form-control " placeholder="Enter Genero">
+
+        </div>
+        <div class="form-group col-md-6">
+            <label for="InputRol">Como quieres ser parte de nuestra app</label>
+            <input [(ngModel)]="a.rol" name="rol" type="text" class="form-control " placeholder="Enter Rol">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputPassword">Password</label>
+            <input [(ngModel)]="a.contrasena" name="contrasena" type="password" class="form-control" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary"> <i class=""> Registrar</i></button>
+        </div>
+        <!--  <button type="submit" class="btn btn-primary">Registar</button> -->
+    </form>
 </div>
+
+<!-- para mostrar formulario reactivo -->
+<!-- <div class="container">
+    <p> {{form.value | json}} </p>
+</div> -->

@@ -1,0 +1,36 @@
+<!-- <button type="submit" class="btn btn-primary" (click)="listar()">Listar</button> -->
+{{message}}
+<div class="container">
+    <h2>Tabla Personas</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Estado</th>
+                <th>Correo</th>
+                <th>Contraseña</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of personas">
+                <td> {{user.id}} </td>
+                <td> {{user.nombre}} </td>
+                <td> {{user.apellidos}} </td>
+                <td> {{user.estado}}</td>
+                <td> {{user.correo}} </td>
+                <td> {{user.contrasena}} </td>
+
+                <td> <button type="submit" class="btn btn-primary">Eliminar</button></td>
+
+                <td> <button type="submit" class="btn btn-primary">Editar</button></td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+</div>

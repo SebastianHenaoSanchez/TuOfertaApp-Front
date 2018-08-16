@@ -7,10 +7,12 @@ import { Component } from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { AppComponent } from './app.component';
+import { ListarComponent } from './components/listar/listar.component';
 
 
 
 const APP_ROUTES: Routes = [
+    {path: 'listar', component: ListarComponent},
     {path: 'inicio', component: AppComponent},
     {path: 'footer', component: FooterComponent},
     {path: 'login', component: LoginComponent},
