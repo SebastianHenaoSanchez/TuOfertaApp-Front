@@ -8,10 +8,16 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { AppComponent } from './app.component';
 import { ListarComponent } from './components/listar/listar.component';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { SuperadministradorComponent } from './components/superadministrador/superadministrador.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 
 
 const APP_ROUTES: Routes = [
+    {path: 'usuario/:id', component: UsuarioComponent},
+    {path: 'superadministrador/:id', component: SuperadministradorComponent},
+    {path: 'administrador/:id', component: AdministradorComponent},
     {path: 'listar', component: ListarComponent},
     {path: 'inicio', component: AppComponent},
     {path: 'footer', component: FooterComponent},

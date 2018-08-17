@@ -14,6 +14,10 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { ServicioRegistro } from './service/servicio.registro';
 import { ListarComponent } from './components/listar/listar.component';
 
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { SuperadministradorComponent } from './components/superadministrador/superadministrador.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +26,9 @@ import { ListarComponent } from './components/listar/listar.component';
     HomeComponent,
     RegistrarComponent,
     ListarComponent,
+    AdministradorComponent,
+    UsuarioComponent,
+    SuperadministradorComponent,
    
   ],
   imports: [

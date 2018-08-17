@@ -23,6 +23,16 @@ export class ServicioRegistro {
     getUser(): Observable<any>{
       return this.http.get(this.url+"/listar");
     }
+
+  login(datos: any): Observable<any>{
+    let headers = this.defaultHeaders;
+    headers = headers.set("Content-Type", "application/json"); 
+    return this.http.post( this.url+"/login",  datos, {headers: headers}); 
+  }
+
+  getUserId(id: any): Observable<any>{
+    return this.http.get(this.url + "/listar/" + id);
+  }
  /*  postUser(user: any): Observable<any> {
     return this.http.post(this.url + '/user', user);
 
