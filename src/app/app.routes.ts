@@ -11,10 +11,14 @@ import { ListarComponent } from './components/listar/listar.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { SuperadministradorComponent } from './components/superadministrador/superadministrador.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { RegistrarNegocioComponent } from './components/registrar-negocio/registrar-negocio.component';
+import { ListarnegociospersonaComponent } from './components/listarnegociospersona/listarnegociospersona.component';
 
 
 
 const APP_ROUTES: Routes = [
+    {path: 'listarnegociopersona/:id', component: ListarnegociospersonaComponent},
+    {path: 'registrarNegocio', component: RegistrarNegocioComponent},
     {path: 'usuario/:id', component: UsuarioComponent},
     {path: 'superadministrador/:id', component: SuperadministradorComponent},
     {path: 'administrador/:id', component: AdministradorComponent},
@@ -24,7 +28,7 @@ const APP_ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'registrar', component: RegistrarComponent},
     
-    {path: '**', pathMatch: 'full', redirectTo: 'home'}
+    {path: '**', pathMatch: 'full', redirectTo: 'login'}
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

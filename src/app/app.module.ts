@@ -17,6 +17,9 @@ import { ListarComponent } from './components/listar/listar.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { SuperadministradorComponent } from './components/superadministrador/superadministrador.component';
+import { RegistrarNegocioComponent } from './components/registrar-negocio/registrar-negocio.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ListarnegociospersonaComponent } from './components/listarnegociospersona/listarnegociospersona.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { SuperadministradorComponent } from './components/superadministrador/sup
     AdministradorComponent,
     UsuarioComponent,
     SuperadministradorComponent,
+    RegistrarNegocioComponent,
+    PerfilComponent,
+    ListarnegociospersonaComponent,
    
   ],
   imports: [

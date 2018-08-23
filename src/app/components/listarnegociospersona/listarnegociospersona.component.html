@@ -1,0 +1,38 @@
+<p>
+    listarnegociospersona works!
+</p>
+
+<div class="container">
+    <h2>Mis negocios</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo de negocio</th>
+                <th>Nit</th>
+                <th>Foto</th>
+                <th>Detalle</th>
+                <th>Ubicación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let negocio of negocios">
+                <td> {{negocio.nombreempresa}}</td>
+                <td> {{negocio.tiponegocio}} </td>
+                <td> {{negocio.nit}} </td>
+                <td> {{negocio.foto}} </td>
+                <td> {{negocio.detalle}} </td>
+                <td> {{negocio.ubicacion}} </td>
+                <td> <button type="submit" class="btn btn-primary">Eliminar</button></td>
+
+                <td> <button type="submit" class="btn btn-primary">Editar</button></td>
+
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,57 @@
+<div class="main-container container" *ngFor="let a of negocio">
+    <!-- (ngSubmit) usamos esta para hacer el post al dar click en el boton  -->
+    <form (ngSubmit)="crear()" class="container animacion velocidad desvanecido">
+        <!-- <div class="form-group col-md-6">
+            <label for="InputId">id admin</label>
+           
+            <input [(ngModel)]="a.idadmin" name="idadmin" type="text" class="form-control " placeholder="Enter IdAdmin">
+        </div> -->
+
+
+
+        <!--    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div> -->
+
+        <div class="form-group col-md-6">
+            <label for="InputNombre">NombreEmpresa</label>
+            <!--[(ngModel)] con esto le llevamos los datos al Json -->
+            <input [(ngModel)]="a.nombreempresa" name="nombre" type="text" class="form-control" placeholder="Enter Nombre">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="Inputtiponegocio">Tipo de Negocio</label>
+            <input [(ngModel)]="a.tiponegocio" name="tiponegocio" type="text" class="form-control " placeholder="Enter Tipo de Negocio">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputTelefono">Nit del negocio</label>
+            <input [(ngModel)]="a.nit" name="nit" type="number" class="form-control " placeholder="Enter Nit">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputUbicacion">Ubicación</label>
+            <input [(ngModel)]="a.ubicacion" name="ubicacion" type="text" class="form-control " placeholder="Enter Ubicacion">
+
+        </div>
+        <div class="form-group col-md-6">
+            <label for="InputRol">foto</label>
+            <input [(ngModel)]="a.foto" name="foto" type="text" class="form-control " placeholder="Enter foto">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputDetalle">detalle</label>
+            <input [(ngModel)]="a.detalle" name="detalle" type="text" class="form-control" placeholder="detalle">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary"> <i class=""> Registrar Negocio</i></button>
+        </div>
+        <!--  <button type="submit" class="btn btn-primary">Registar</button> -->
+    </form>
+</div>

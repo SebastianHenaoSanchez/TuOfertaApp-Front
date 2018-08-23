@@ -9,10 +9,12 @@ import { map } from 'rxjs/operators';
 })
 export class ServicioRegistro {
   url: string = 'http://localhost:8090/personas';
+  url2: string = 'http://localhost:8092/negocios';
   
   public defaultHeaders = new HttpHeaders();
   constructor(private http: HttpClient) { }
 
+  // SERVICIO PERSONA
   postUser ( registro: any ): Observable<any> {
     const body = JSON.stringify( registro );
     let headers = this.defaultHeaders;
@@ -50,4 +52,16 @@ export class ServicioRegistro {
     return this.http.put(this.url + '/user', user )
   }
  */
+
+ //SERVICIO NEGOCIO
+ postNegocio ( registro: any ): Observable<any> {
+  const body = JSON.stringify( registro );
+  let headers = this.defaultHeaders;
+  headers = headers.set("Content-Type", "application/json"); 
+  return this.http.post( this.url2+"/registrar",  body, {headers: headers}); 
+  }
+
+  getNegocioPersona (iduser : any): Observable <any>{
+    return this.http.get (this.url2 + "/listar/idadmin/" + iduser);
+  }
 }

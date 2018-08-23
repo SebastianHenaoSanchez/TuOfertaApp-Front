@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    /* setInterval(()=>{
+     setInterval(()=>{
       console.log(this.form)
-    },15000) */
+    },15000) 
   }
 
   loggear(){

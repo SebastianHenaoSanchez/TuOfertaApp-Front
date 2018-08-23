@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute} from '@angular/router';
 import { ServicioRegistro } from '../../service/servicio.registro';
 @Component({
   selector: 'app-administrador',
@@ -10,6 +10,7 @@ export class AdministradorComponent implements OnInit {
   id : any;
   message: any;
   persona: any[] = [];
+  currentContainer : any;
 
   constructor( private router : ActivatedRoute, private traerDatos:ServicioRegistro ) {
     this.router.params.subscribe ( parametros =>{
@@ -37,5 +38,21 @@ export class AdministradorComponent implements OnInit {
     );
 
   }
+
+  switchContainer(containerName) {
+    switch  (containerName) {
+    case '1':
+    this.currentContainer =  'perfil';
+    break;
+    case '2':
+    this.currentContainer =  'registronegocio';
+    break;
+    case '3':
+    this.currentContainer = 'listarnegociospersona';
+    break;
+      
+    
+    }
+    }
 
 }
