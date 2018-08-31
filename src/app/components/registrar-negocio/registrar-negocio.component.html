@@ -8,12 +8,6 @@
         </div> -->
 
 
-
-        <!--    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div> -->
-
         <div class="form-group col-md-6">
             <label for="InputNombre">NombreEmpresa</label>
             <!--[(ngModel)] con esto le llevamos los datos al Json -->
@@ -22,10 +16,22 @@
         </div>
 
         <div class="form-group col-md-6">
-            <label for="Inputtiponegocio">Tipo de Negocio</label>
-            <input [(ngModel)]="a.tiponegocio" name="tiponegocio" type="text" class="form-control " placeholder="Enter Tipo de Negocio">
+            <label for="InputTipoNegocio">Tipo de negocio</label>
+            <select class="input1 " [(ngModel)]="a.tiponegocio" name="tiponegocio" type="text " id="selector1" placeholder="Tipo de Negocio " [ngModelOptions]="{standalone: true}">
+                        <option>Restaurantes</option>
+                        <option>Comidas Rapidas</option>
+                        <option>Bares</option>
+                        <option>Otros</option>
+            </select>
+        </div>
+
+
+        <div class="form-group col-md-6">
+            <label for="InputCorreo">Correo del negocio</label>
+            <input [(ngModel)]="a.correo" name="correo" type="text" class="form-control " placeholder="Enter Correo">
 
         </div>
+
 
         <div class="form-group col-md-6">
             <label for="InputTelefono">Nit del negocio</label>
@@ -52,6 +58,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary"> <i class=""> Registrar Negocio</i></button>
         </div>
+        <div>{{message}}</div>
         <!--  <button type="submit" class="btn btn-primary">Registar</button> -->
     </form>
 </div>

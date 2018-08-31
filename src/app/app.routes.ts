@@ -13,10 +13,15 @@ import { SuperadministradorComponent } from './components/superadministrador/sup
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { RegistrarNegocioComponent } from './components/registrar-negocio/registrar-negocio.component';
 import { ListarnegociospersonaComponent } from './components/listarnegociospersona/listarnegociospersona.component';
-
+import { EditarnegocioComponent } from './components/editarnegocio/editarnegocio.component';
+import { OfertaComponent} from './components/oferta/oferta.component';
+import { RegistrarofertaComponent } from './components/registraroferta/registraroferta.component';
 
 
 const APP_ROUTES: Routes = [
+    {path: 'registraroferta/:id', component: RegistrarofertaComponent},
+    {path: 'oferta/:id', component: OfertaComponent},
+    {path: 'editarnegocio/:id', component: EditarnegocioComponent},
     {path: 'listarnegociopersona/:id', component: ListarnegociospersonaComponent},
     {path: 'registrarNegocio', component: RegistrarNegocioComponent},
     {path: 'usuario/:id', component: UsuarioComponent},

@@ -9,8 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class ServicioRegistro {
   url: string = 'http://localhost:8090/personas';
-  url2: string = 'http://localhost:8092/negocios';
-  
+  url2: string = 'http://localhost:8095/negocios';
+  url3: string = 'http://localhost:8070/ofertas';
   public defaultHeaders = new HttpHeaders();
   constructor(private http: HttpClient) { }
 
@@ -64,4 +64,42 @@ export class ServicioRegistro {
   getNegocioPersona (iduser : any): Observable <any>{
     return this.http.get (this.url2 + "/listar/idadmin/" + iduser);
   }
+
+  deleteNegocio (idnegocio : any): Observable <any>{
+    return this.http.delete (this.url2 + "/eliminar/" + idnegocio);
+  }
+
+  editNegocio (negocio : any): Observable <any> {
+    const body = JSON.stringify( negocio );
+    let headers = this.defaultHeaders;
+  headers = headers.set("Content-Type", "application/json"); 
+    return this.http.put (this.url2 + "/editar", body, {headers: headers} );
+  }
+
+  getNegocio(id:String):Observable<any>{
+    return this.http.get(this.url2 + "/listar/idnegocio/" + id);
+    
+    } 
+
+
+  //SERVICIO OFERTAS
+
+  getOfertas(id: String): Observable<any>{
+    return this.http.get(this.url3+"/listar/idoferta/" + id);
+  }
+
+  getOfertasNegocio (id: String): Observable<any>{
+    return this.http.get(this.url3 + "/listar/idnegocio/" + id);
+  }
+
+  postOfertas ( oferta: any ): Observable<any> {
+    const body = JSON.stringify( oferta );
+    let headers = this.defaultHeaders;
+    headers = headers.set("Content-Type", "application/json"); 
+    return this.http.post( this.url3+"/registrar",  body, {headers: headers}); 
+    }
+
+    deleteOferta (idoferta : any): Observable <any>{
+      return this.http.delete (this.url3 + "/eliminar/" + idoferta);
+    }
 }

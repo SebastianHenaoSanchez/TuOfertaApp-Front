@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioRegistro } from '../../service/servicio.registro';
 import {ActivatedRoute} from '@angular/router'
+
+// para el dialog
+import {MatDialog} from '@angular/material/dialog';
+import { RegistrarComponent } from '../registrar/registrar.component';
+
+
 @Component({
   selector: 'app-listarnegociospersona',
   templateUrl: './listarnegociospersona.component.html',
@@ -9,8 +15,25 @@ import {ActivatedRoute} from '@angular/router'
 export class ListarnegociospersonaComponent implements OnInit {
   id : any;
   public negocios:any = [];
+ 
+  //para editar en un modal
+  
+/*   negoc: object = {
+    idadmin: '',
+   // idnegocio:'',
+    nombreempresa:'',
+    tiponegocio:'',
+    nit:'',
+    ubicacion:'',
+    foto:'',
+    detalle:'',
+};
+negocio: any [] = [this.negoc];
 
-  constructor(private router : ActivatedRoute, private traerNegocio:ServicioRegistro) {
+registro: object ={
+  negocio: this.negocio
+};  */
+  constructor(private router : ActivatedRoute, private traerNegocio:ServicioRegistro, private deleteNegocio:ServicioRegistro, private dialog: MatDialog) {
     this.router.params.subscribe (parametros =>{
       this.id = parametros.id;
       console.log(parametros);
@@ -18,7 +41,7 @@ export class ListarnegociospersonaComponent implements OnInit {
       this.traerNegocios()
     })
    }
-  
+
 
   ngOnInit() {
   }
@@ -34,4 +57,29 @@ export class ListarnegociospersonaComponent implements OnInit {
         console.log ("Error listando negocios")
       });
   }
+
+  eliminarNegocio (idnego : any){
+    console.log(idnego);
+    this.deleteNegocio.deleteNegocio(idnego).subscribe(
+      Response => {
+        console.log("negocio eliminado")
+        this.traerNegocios();
+      }, error =>{
+        console.log ("no se pudo eliminar")
+      })
+  }
+
+  //para hacer el dialog
+/* openDialog(){
+  let dialogRef = this.dialog.open(RegistrarComponent, {
+    height: '400px',
+    width: '600px',
+
+
+  });
+} */
+  editar(){
+
+  }
+
 }

@@ -16,6 +16,7 @@ export class RegistrarNegocioComponent implements OnInit {
     idadmin: '',
     nombreempresa:'',
     tiponegocio:'',
+    correo:'',
     nit:'',
     ubicacion:'',
     foto:'',

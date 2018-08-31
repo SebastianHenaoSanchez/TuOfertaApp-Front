@@ -18,7 +18,7 @@ public personas:any = [];// = [this.person];
 
   ngOnInit() {
   }
-
+  
   listar(){
     this.servicio.getUser().subscribe(
       Response =>{

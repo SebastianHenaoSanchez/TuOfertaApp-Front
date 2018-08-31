@@ -12,12 +12,13 @@ export class RegistrarComponent implements OnInit {
 
   public form: FormGroup;
   public message ="";
-  
+  public correo : boolean;
 
   person: object = {
         correo:'',
         nombre:'',
         apellidos:'',
+        ciudad:'',
         telefono:'',
         genero:'',
         rol:'',
@@ -48,7 +49,14 @@ export class RegistrarComponent implements OnInit {
         this.message="usuario creado"
         console.log(this.message)
     }, error => {
-      this.message ="Error"
+      
+      this.message = error.error.detalle;
+        console.log(this.message)
+        //mirar si el correo o contraseña son correctos
+        if (this.message === 'CORREO YA REGISTRADO'){
+          this.correo = true;
+         // console.log (this.correo);
+        }
     });
   }
 

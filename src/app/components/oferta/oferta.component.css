@@ -1,0 +1,38 @@
+/* Cambios sobre la propia tabla */
+
+table {
+    border-collapse: collapse;
+}
+
+
+/* Espacio de relleno en celdas y cabeceras */
+
+td,
+th {
+    padding: 10px;
+}
+
+
+/* Modificación de estilos en cabeceras */
+
+th {
+    background: darkslategray;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+
+/* Modificación de estilos en celdas */
+
+td {
+    text-align: left;
+    border-bottom: 2px solid darkslategray;
+    color: #333;
+    font-size: 15px;
+}
+
+.tab-img {
+    position: relative;
+    max-height: 80px;
+    max-width: 100px;
+}

@@ -20,6 +20,38 @@ import { SuperadministradorComponent } from './components/superadministrador/sup
 import { RegistrarNegocioComponent } from './components/registrar-negocio/registrar-negocio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ListarnegociospersonaComponent } from './components/listarnegociospersona/listarnegociospersona.component';
+import { EditarnegocioComponent } from './components/editarnegocio/editarnegocio.component';
+import { OfertaComponent } from './components/oferta/oferta.component';
+//angular material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+//login con google
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from "angular5-social-login";
+import { Observable } from 'rxjs/Observable';
+import { RegistrarofertaComponent } from './components/registraroferta/registraroferta.component';
+
+
+// Configs 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+         {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('231572004369471')
+        }, 
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider('695284588998-jdsf9c1mb7pd3cj8457rcml5m8c5jrt2.apps.googleusercontent.com')
+        },
+      ]
+  );
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -35,6 +67,9 @@ import { ListarnegociospersonaComponent } from './components/listarnegociosperso
     RegistrarNegocioComponent,
     PerfilComponent,
     ListarnegociospersonaComponent,
+    EditarnegocioComponent,
+    OfertaComponent,
+    RegistrarofertaComponent
    
   ],
   imports: [
@@ -43,10 +78,17 @@ import { ListarnegociospersonaComponent } from './components/listarnegociosperso
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
-    ServicioRegistro
+    ServicioRegistro,
+  {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+  }
   ],
   bootstrap: [AppComponent]
 })

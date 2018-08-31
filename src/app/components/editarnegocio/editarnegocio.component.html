@@ -1,0 +1,46 @@
+<div class="main-container container" *ngFor="let a of negocio">
+    <!-- (ngSubmit) usamos esta para hacer el post al dar click en el boton  -->
+    <form (ngSubmit)="editar()" class="container animacion velocidad desvanecido">
+        <div class="form-group col-md-6">
+            <label for="InputNombre">NombreEmpresa</label>
+            <!--[(ngModel)] con esto le llevamos los datos al Json -->
+            <input [(ngModel)]="a.nombreempresa" name="nombre" type="text" class="form-control">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="Inputtiponegocio">Tipo de Negocio</label>
+            <input [(ngModel)]="a.tiponegocio" name="tiponegocio" type="text" class="form-control ">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputTelefono">Nit del negocio</label>
+            <input [(ngModel)]="a.nit" name="nit" type="number" class="form-control ">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputUbicacion">Ubicación</label>
+            <input [(ngModel)]="a.ubicacion" name="ubicacion" type="text" class="form-control ">
+
+        </div>
+        <div class="form-group col-md-6">
+            <label for="InputRol">foto</label>
+            <input [(ngModel)]="a.foto" name="foto" type="text" class="form-control ">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="InputDetalle">detalle</label>
+            <input [(ngModel)]="a.detalle" name="detalle" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary"> Editar</button>
+        </div>
+        <div>
+            {{message}}
+        </div>
+    </form>
+</div>
