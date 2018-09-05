@@ -10,6 +10,37 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!--  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> -->
+    <script>
+        function coordenadas() {
+            console.log("cualquiercosa")
+            var geocoder = new google.maps.Geocoder();
+
+            var direccion = document.getElementById("ubicacion").value + "," + "Medellín, Antioquia";
+
+            if (document.getElementById("ubicacion").value == "") {
+                return;
+            }
+
+            geocoder.geocode({
+                'address': direccion
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var latitude = results[0].geometry.location.lat();
+                    var longitude = results[0].geometry.location.lng();
+                    document.getElementById("txtLatitud").value = latitude;
+                    document.getElementById("txtLongitud").value = longitude;
+                    // alert(latitude + '+' + longitude);
+                } else {
+                    alert("Ocurrio un error obteniendo su ubicación, verifica si la dirección tiene la estructura recomendada.");
+                    document.getElementById("txtLatitud").value = "";
+                    document.getElementById("txtLongitud").value = "";
+                    return;
+                }
+            });
+        }
+    </script>
+
 </head>
 
 <body>

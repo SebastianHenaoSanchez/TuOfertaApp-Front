@@ -22,9 +22,18 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { ListarnegociospersonaComponent } from './components/listarnegociospersona/listarnegociospersona.component';
 import { EditarnegocioComponent } from './components/editarnegocio/editarnegocio.component';
 import { OfertaComponent } from './components/oferta/oferta.component';
+// firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { environment} from '../environments/environment';
+//google maps
+import { AgmCoreModule } from '@agm/core';
+
+
 //angular material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
 //login con google
 import {
   SocialLoginModule,
@@ -34,6 +43,7 @@ import {
 } from "angular5-social-login";
 import { Observable } from 'rxjs/Observable';
 import { RegistrarofertaComponent } from './components/registraroferta/registraroferta.component';
+import { ListarnegociosadminComponent } from './components/listarnegociosadmin/listarnegociosadmin.component';
 
 
 // Configs 
@@ -69,7 +79,9 @@ export function getAuthServiceConfigs() {
     ListarnegociospersonaComponent,
     EditarnegocioComponent,
     OfertaComponent,
-    RegistrarofertaComponent
+    RegistrarofertaComponent,
+    ListarnegociosadminComponent,
+   
    
   ],
   imports: [
@@ -81,10 +93,17 @@ export function getAuthServiceConfigs() {
     HttpClientModule,
     SocialLoginModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule,
+    AngularFireModule.initializeApp(environment.firebase),  
+    AngularFireStorageModule ,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA-HXVa2jtkGfKtIJwisxgC46RaWqC1xuI'
+      })                        
   ],
   providers: [
     ServicioRegistro,
+
   {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

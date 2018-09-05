@@ -23,9 +23,20 @@
 
                 <div class="form-group col-lg-12">
                     <label for="InputFoto">Foto</label>
-                    <!--[(ngModel)] con esto le llevamos los datos al Json -->
-                    <input [(ngModel)]="a.foto" name="foto" type="url" class="form-control " placeholder="imagen">
+                    <!--[(ngModel)] con esto le llevamos los datos al Json 
+                    <input [(ngModel)]="a.foto" name="foto" (change)="upload($event)" accept=".png,.jpg" class="form-control " placeholder="imagen">
+                    -->
+                    <div class="card">
 
+
+                        <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100">
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -63,5 +74,7 @@
             </form>
         </div>
     </div>
-    <div class="col-lg-3"></div>
+    <div class="col-lg-3">
+
+    </div>
 </div>

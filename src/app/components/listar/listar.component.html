@@ -1,6 +1,6 @@
 <!-- <button type="submit" class="btn btn-primary" (click)="listar()">Listar</button> -->
 {{message}}
-<div class="container">
+<div class="container container animacion velocidad desvanecido">
     <h2>Tabla Personas</h2>
 
     <table class="table">
@@ -12,7 +12,7 @@
                 <th>Tipo de usuario</th>
                 <th>Estado</th>
                 <th>Correo</th>
-                <th>Contraseña</th>
+
             </tr>
         </thead>
         <tbody>
@@ -23,11 +23,11 @@
                 <td> {{user.rol}} </td>
                 <td> {{user.estado}}</td>
                 <td> {{user.correo}} </td>
-                <td> {{user.contrasena}} </td>
 
-                <td> <button type="submit" class="btn btn-primary">Eliminar</button></td>
 
-                <td> <button type="submit" class="btn btn-primary">Editar</button></td>
+                <td> <button Style="background-color:darkslategray" type="submit" class="btn btn-primary" data-whatever="@getbootstrap"><i class="fas fa-times"></i></button></td>
+
+                <td> <button Style="background-color:darkslategray" type="submit" class="btn btn-primary"   data-toggle="modal" data-whatever="@getbootstrap"><i class="fas fa-edit"></i></button></td>
             </tr>
 
 

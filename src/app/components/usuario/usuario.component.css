@@ -1,0 +1,25 @@
+agm-map {
+    height: 630px;
+    width: 100%;
+}
+
+h2 {
+    color: rgb(126, 184, 164);
+}
+
+.boton-sidenav-content {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.sidenav {
+    padding: 30px;
+    background-color: #343a40;
+}
+
+.tab-img {
+    position: relative;
+    max-height: 80px;
+    max-width: 100px;
+}

@@ -1,13 +1,14 @@
-<div class="container">
+<div class="container container animacion velocidad desvanecido">
     <h2>Mis negocios</h2>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Nombre</th>
+                <th>Foto</th>
                 <th>Tipo de negocio</th>
                 <th>Nit</th>
-                <th>Foto</th>
+
                 <th>Detalle</th>
                 <th>Ubicación</th>
             </tr>
@@ -15,9 +16,12 @@
         <tbody>
             <tr *ngFor="let negocio of negocios">
                 <td> {{negocio.nombreempresa}}</td>
+                <td>
+                    <img class="tab-img" [src]="negocio.foto" />
+                </td>
                 <td> {{negocio.tiponegocio}} </td>
                 <td> {{negocio.nit}} </td>
-                <td> {{negocio.foto}} </td>
+
                 <td> {{negocio.detalle}} </td>
                 <td> {{negocio.ubicacion}} </td>
                 <td> <button Style="background-color:darkslategray" type="submit" (click)="eliminarNegocio(negocio.idnegocio)" class="btn btn-primary" data-whatever="@getbootstrap"><i class="fas fa-times"></i></button></td>

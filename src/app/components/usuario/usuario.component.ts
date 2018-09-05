@@ -8,16 +8,20 @@ import { ServicioRegistro } from '../../service/servicio.registro';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
+  showFiller = false;
   id : any;
   message: any;
   persona: any[] = [];
-
+  oferta: any;
+  lat: number = 6.264716;
+  lng: number = -75.566206;
   constructor(private router : ActivatedRoute, private traerDatos:ServicioRegistro) { 
     this.router.params.subscribe ( parametros =>{
       this.id = parametros.id;
       console.log(parametros);
     })
-    this.traerUsuario()
+    this.traerUsuario();
+    this.ofertas();
   }
 
   ngOnInit() {
@@ -27,8 +31,10 @@ export class UsuarioComponent implements OnInit {
     this.traerDatos.getUserId(this.id).subscribe(
       Response => {
         console.log("trayendo datos")
-        console.log(Response)
+        //console.log(Response)
         this.persona = Response.persona;
+        console.log("persona");
+        console.log(this.persona);
       }, error => {
         this.message ="Error en login"
         console.log(this.message)
@@ -37,6 +43,17 @@ export class UsuarioComponent implements OnInit {
 
     );
 
+  }
+
+  ofertas(){
+    this.traerDatos.getOfer().subscribe(
+      Response => {
+        this.oferta= Response.oferta; 
+        console.log(this.oferta);
+      }, error => {
+        console.log("error listando las ofertas");
+      }
+    )
   }
 
 }

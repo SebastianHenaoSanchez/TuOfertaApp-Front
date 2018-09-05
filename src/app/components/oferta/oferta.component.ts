@@ -49,6 +49,7 @@ export class OfertaComponent implements OnInit {
   }
 
   eliminar(idoferta : any){
+    console.log("id oferta"+idoferta);
     this.deleteofer.deleteOferta(idoferta).subscribe(
     Response => {
       console.log("oferta eliminada")

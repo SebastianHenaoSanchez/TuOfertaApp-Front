@@ -1,5 +1,42 @@
-<div *ngFor="let user of persona">
-    <h2>
-        Bienvenido Super Administrador {{user.nombre}}
-    </h2>
-</div>
+<body>
+    <!-- <div *ngFor="let user of persona">
+        <h2>
+            Bienvenido Super Administrador {{user.nombre}}
+        </h2>
+    </div> -->
+
+    <aside>
+        <ul> <br><br><br>
+            <li>
+                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('1')">Perfil Super Administrador</a>
+            </li>
+            <li>
+                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('2')">Personas Registradas</a>
+            </li>
+
+            <li>
+                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('3')">Negocios</a>
+            </li>
+            <li>
+                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('4')">Mira tus Negocios</a>
+            </li>
+            <li>
+                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('5')">Ofertas</a>
+            </li>
+        </ul>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <footer>
+            <!--  <img src="http://galeon.hispavista.com/accesible/img/Grac"  height="50px"  width="220px"  alt=""> -->
+        </footer>
+
+    </aside>
+    <section>
+        <div [ngSwitch]="currentContainer">
+            <app-perfil *ngSwitchCase="'perfil'"></app-perfil>
+                <app-registrar-negocio *ngSwitchCase="'registronegocio'"></app-registrar-negocio>
+                <app-listarnegociospersona *ngSwitchCase="'listarnegociospersona'"></app-listarnegociospersona>
+                <app-listar *ngSwitchCase="'listar'"></app-listar>
+
+                </div>
+    </section>
+</body>

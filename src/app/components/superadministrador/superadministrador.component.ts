@@ -10,6 +10,7 @@ export class SuperadministradorComponent implements OnInit {
   id : any;
   message: any;
   persona: any[] = [];
+  currentContainer : any;
 
   constructor(private router : ActivatedRoute, private traerDatos:ServicioRegistro) {
     this.router.params.subscribe ( parametros =>{
@@ -31,9 +32,29 @@ export class SuperadministradorComponent implements OnInit {
       }, error => {
         this.message ="Error en login"
         console.log(this.message)
-
       }
-
     );
   }
+
+  switchContainer(containerName) {
+    switch  (containerName) {
+    case '1':
+    this.currentContainer =  'perfil';
+    break;
+    case '2':
+    this.currentContainer =  'listar';
+    break;
+    case '3':
+    this.currentContainer =  'registronegocio';
+    break;
+    case '4':
+    this.currentContainer = 'listarnegociospersona';
+    break;
+    case '5':
+    this.currentContainer =  'perfil';
+    break;
+      
+    
+    }
+    }
 }

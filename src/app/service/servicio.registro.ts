@@ -88,6 +88,9 @@ export class ServicioRegistro {
     return this.http.get(this.url3+"/listar/idoferta/" + id);
   }
 
+  getOfer(): Observable <any>{
+    return this.http.get(this.url3 + "/listar");
+  }
   getOfertasNegocio (id: String): Observable<any>{
     return this.http.get(this.url3 + "/listar/idnegocio/" + id);
   }
