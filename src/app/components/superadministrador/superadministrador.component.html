@@ -18,11 +18,9 @@
                 <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('3')">Negocios</a>
             </li>
             <li>
-                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('4')">Mira tus Negocios</a>
+                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('4')">Ofertas</a>
             </li>
-            <li>
-                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('5')">Ofertas</a>
-            </li>
+
         </ul>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <footer>
@@ -36,7 +34,8 @@
                 <app-registrar-negocio *ngSwitchCase="'registronegocio'"></app-registrar-negocio>
                 <app-listarnegociospersona *ngSwitchCase="'listarnegociospersona'"></app-listarnegociospersona>
                 <app-listar *ngSwitchCase="'listar'"></app-listar>
-
+                <app-listarnegociosadmin *ngSwitchCase="'listarnegociosadmin'"></app-listarnegociosadmin>
+                <app-listarofertasadmin *ngSwitchCase="'listarofertasadmin'"></app-listarofertasadmin>
                 </div>
     </section>
 </body>

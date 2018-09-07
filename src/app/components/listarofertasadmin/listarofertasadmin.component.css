@@ -1,3 +1,7 @@
+body {
+    background-color: transparent;
+}
+
 .tab-img {
     position: relative;
     max-height: 80px;

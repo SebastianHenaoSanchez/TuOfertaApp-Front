@@ -1,0 +1,44 @@
+<div class="container container animacion velocidad desvanecido">
+    <h2>Ofertas</h2>
+
+    <table align="center" class="table ">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Id Oferta</th>
+                <th>Id Negocio</th>
+                <th>Producto</th>
+                <th>Detalle</th>
+                <th>Valor</th>
+                <th>Descuento</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ofer of ofertas">
+                <td> <img class="tab-img" [src]="ofer.foto" /> </td>
+                <td> {{ofer.idoferta}} </td>
+                <td> {{ofer.idnegocio}} </td>
+                <td> {{ofer.producto}} </td>
+                <td> {{ofer.detalle}} </td>
+                <td> {{ofer.valor}}</td>
+                <td> {{ofer.descuento}} </td>
+
+
+                <td>
+
+                    <button Style="background-color:darkslategray" type="submit" (click)="eliminar(ofer.idoferta)" class="btn btn-dark"><i class="fas fa-times"></i></button>
+
+                    <br> <br>
+                    <button Style="background-color:darkslategray" type="submit" class="btn btn-dark"><i class="fas fa-edit"></i></button>
+                </td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+
+
+</div>

@@ -1,55 +1,57 @@
-<div class="row">
-    <div class="col-lg-3">
-        {{message}}
-    </div>
-    <div class=" col-lg-6">
-        <div class="col-lg-12">
-            <h2>Tabla Ofertas</h2>
+<body>
+    <div class="row">
+        <div class="col-lg-3">
+            {{message}}
+        </div>
+        <div class=" col-lg-6">
+            <div class="col-lg-12">
+                <h2>Tabla Ofertas</h2>
 
-            <table align="center" class="table col-lg-6 container animacion velocidad desvanecido">
-                <thead>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Id Oferta</th>
-                        <th>Id Negocio</th>
-                        <th>Producto</th>
-                        <th>Detalle</th>
-                        <th>Valor</th>
-                        <th>Descuento</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let ofer of ofertas">
-                        <td> <img class="tab-img" [src]="ofer.foto" /> </td>
-                        <td> {{ofer.idoferta}} </td>
-                        <td> {{ofer.idnegocio}} </td>
-                        <td> {{ofer.producto}} </td>
-                        <td> {{ofer.detalle}} </td>
-                        <td> {{ofer.valor}}</td>
-                        <td> {{ofer.descuento}} </td>
-
-
-                        <td>
-
-                            <button Style="background-color:darkslategray" type="submit" (click)="eliminar(ofer.idoferta)" class="btn btn-dark"><i class="fas fa-times"></i></button>
-
-                            <br> <br>
-                            <button Style="background-color:darkslategray" type="submit" class="btn btn-dark"><i class="fas fa-edit"></i></button>
-                        </td>
-                    </tr>
+                <table align="center" class="table col-lg-6 container animacion velocidad desvanecido">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Id Oferta</th>
+                            <th>Id Negocio</th>
+                            <th>Producto</th>
+                            <th>Detalle</th>
+                            <th>Valor</th>
+                            <th>Descuento</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ofer of ofertas">
+                            <td> <img class="tab-img" [src]="ofer.foto" /> </td>
+                            <td> {{ofer.idoferta}} </td>
+                            <td> {{ofer.idnegocio}} </td>
+                            <td> {{ofer.producto}} </td>
+                            <td> {{ofer.detalle}} </td>
+                            <td> {{ofer.valor}}</td>
+                            <td> {{ofer.descuento}} </td>
 
 
+                            <td>
+
+                                <button Style="background-color:darkslategray" type="submit" (click)="eliminar(ofer.idoferta)" class="btn btn-dark"><i class="fas fa-times"></i></button>
+
+                                <br> <br>
+                                <button Style="background-color:darkslategray" type="submit" class="btn btn-dark"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
 
 
-                </tbody>
-            </table>
-            <button Style="background-color:darkslategray" (click)="registrar()" type="submit" class="btn btn-dark"><i class="fas fa-edit"></i>Agregar Oferta</button>
+
+
+                    </tbody>
+                </table>
+                <button Style="background-color:darkslategray" (click)="registrar()" type="submit" class="btn btn-dark"><i class="fas fa-edit"></i>Agregar Oferta</button>
+
+            </div>
 
         </div>
-
+        <div class="col-lg-3">
+            {{message}}
+        </div>
     </div>
-    <div class="col-lg-3">
-        {{message}}
-    </div>
-</div>
+</body>

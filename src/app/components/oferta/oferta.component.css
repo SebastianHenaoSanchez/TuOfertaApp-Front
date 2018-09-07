@@ -27,7 +27,7 @@ th {
 td {
     text-align: left;
     border-bottom: 2px solid darkslategray;
-    color: #333;
+    color: white;
     font-size: 15px;
 }
 
@@ -35,4 +35,16 @@ td {
     position: relative;
     max-height: 80px;
     max-width: 100px;
+}
+
+body {
+    background-image: url(../../../assets/imagenes/Fondo.jpg);
+    width: 100%;
+    height: 780px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    color: white;
 }

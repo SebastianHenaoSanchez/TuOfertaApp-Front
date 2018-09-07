@@ -17,7 +17,7 @@ import {
 export class LoginComponent implements OnInit {
   public form: FormGroup;
   public message: any;
-  
+  public inactivo: boolean;
  public contrasena: boolean;
  public correo: boolean; 
   //creamos una persona para guardar el login de google
@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     correo:'',
     nombre:'',
     apellidos:'na',
+    ciudad:'na',
     telefono:'na',
     genero:'na',
     rol:'usuario',
@@ -54,15 +55,22 @@ persona: this.persona
       Response =>{
         console.log(Response)
         console.log(Response.persona[0].rol)
-        
-        if(Response.persona[0].rol === "administrador"){
-          this.route.navigate(['administrador', Response.persona[0].id]);
+        if(Response.persona[0].estado === "activo"){
+          this.inactivo=false ;
+          if(Response.persona[0].rol === "administrador"){
+            this.route.navigate(['administrador', Response.persona[0].id]);
+  
+          }else if(Response.persona[0].rol === "super administrador"){
+            this.route.navigate(['superadministrador', Response.persona[0].id]);
+          }else {
+            this.route.navigate(['usuario', Response.persona[0].id]);
+          }
 
-        }else if(Response.persona[0].rol === "super administrador"){
-          this.route.navigate(['superadministrador', Response.persona[0].id]);
-        }else {
-          this.route.navigate(['usuario', Response.persona[0].id]);
-        } 
+        }else{
+          this.inactivo = true;
+
+        }
+        
       }, error => {
         this.message = error.error.detalle;
         console.log(this.message)

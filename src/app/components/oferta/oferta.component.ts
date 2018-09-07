@@ -12,7 +12,7 @@ import { Routes, Router } from '../../../../node_modules/@angular/router';
 })
 export class OfertaComponent implements OnInit {
   id : any;
-  public ofertas:any = []
+  public ofertas:any = [];
   public message: any;
 
 

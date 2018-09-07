@@ -1,5 +1,5 @@
 agm-map {
-    height: 630px;
+    height: 730px;
     width: 100%;
 }
 
@@ -22,4 +22,35 @@ h2 {
     position: relative;
     max-height: 80px;
     max-width: 100px;
+}
+
+.mat-bottom-sheet-container {
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
+    padding: 8px 16px;
+    min-width: 100vw;
+    box-sizing: border-box;
+    display: block;
+    outline: 0;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.form-filtro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-filtro .form-group {
+    flex-grow: 1;
+    padding: 0 5px 0 0;
+    flex-basis: 10%;
+}
+
+.form-filtro .form-control {
+    width: 100%;
+}
+
+.form-filtro .form-nowrap {
+    white-space: nowrap;
 }

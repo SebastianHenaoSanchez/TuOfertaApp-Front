@@ -29,6 +29,8 @@ export class RegistrarNegocioComponent implements OnInit {
     ubicacion:'',
     foto:'',
     detalle:'',
+    latitud:'',
+    longitud:''
 };
 negocio: any [] = [this.negoc];
 
@@ -57,7 +59,8 @@ registro: object ={
     console.log(valor1);
     console.log(valor2);
     this.negocio[0].ubicacion= this.negocio[0].ubicacion +"/"+ valor1 +"/"+ valor2;
-   
+    this.negocio[0].latitud = valor1;
+    this.negocio[0].longitud = valor2;
 
     this.registrar.postNegocio(this.registro).subscribe(
       Response =>{

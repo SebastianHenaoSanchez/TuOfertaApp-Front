@@ -1,7 +1,7 @@
 body {
     background-image: url(../../../assets/imagenes/bg-slider2.jpg);
     width: 100%;
-    height: 650px;
+    height: 700px;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -13,7 +13,7 @@ body {
 .container-login {
     min-height: 75vh;
     align-items: center;
-    background: transparent;
+    background-color: transparent;
     padding: 70px 0;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@ body {
 .content-login {
     width: 100%;
     max-width: 410px;
-    background: transparent;
+    background-color: transparent;
     text-align: center;
 }
 

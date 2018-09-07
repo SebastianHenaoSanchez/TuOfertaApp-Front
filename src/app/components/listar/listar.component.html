@@ -1,7 +1,7 @@
 <!-- <button type="submit" class="btn btn-primary" (click)="listar()">Listar</button> -->
 {{message}}
 <div class="container container animacion velocidad desvanecido">
-    <h2>Tabla Personas</h2>
+    <h2>Personas</h2>
 
     <table class="table">
         <thead>
@@ -25,9 +25,9 @@
                 <td> {{user.correo}} </td>
 
 
-                <td> <button Style="background-color:darkslategray" type="submit" class="btn btn-primary" data-whatever="@getbootstrap"><i class="fas fa-times"></i></button></td>
+                <td> <button Style="background-color:darkslategray" (click)="eliminar(user.id)" type="submit" class="btn btn-primary" data-whatever="@getbootstrap"><i class="fas fa-times"></i></button></td>
 
-                <td> <button Style="background-color:darkslategray" type="submit" class="btn btn-primary"   data-toggle="modal" data-whatever="@getbootstrap"><i class="fas fa-edit"></i></button></td>
+                <td> <button Style="background-color:darkslategray" type="submit" class="btn btn-primary" [routerLink]="['/editarpersona', user.id]"   data-toggle="modal" data-whatever="@getbootstrap"><i class="fas fa-edit"></i></button></td>
             </tr>
 
 

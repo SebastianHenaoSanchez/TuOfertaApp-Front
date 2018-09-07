@@ -15,12 +15,19 @@ export class ServicioRegistro {
   constructor(private http: HttpClient) { }
 
   // SERVICIO PERSONA
-  postUser ( registro: any ): Observable<any> {
+    postUser ( registro: any ): Observable<any> {
     const body = JSON.stringify( registro );
     let headers = this.defaultHeaders;
     headers = headers.set("Content-Type", "application/json"); 
     return this.http.post( this.url+"/registrar",  body, {headers: headers}); 
     }
+    
+    setUser ( registro: any ): Observable<any> {
+      const body = JSON.stringify( registro );
+      let headers = this.defaultHeaders;
+      headers = headers.set("Content-Type", "application/json"); 
+      return this.http.put( this.url+"/editar",  body, {headers: headers}); 
+      }
 
     getUser(): Observable<any>{
       return this.http.get(this.url+"/listar");
@@ -34,6 +41,13 @@ export class ServicioRegistro {
 
   getUserId(id: any): Observable<any>{
     return this.http.get(this.url + "/listar/" + id);
+  }
+
+  deleteUser(deleterequest: any): Observable<any>{
+    const body = JSON.stringify( deleterequest );
+    let headers = this.defaultHeaders;
+    headers = headers.set("Content-Type", "application/json"); 
+    return this.http.post(this.url + "/eliminar",body ,{headers: headers});
   }
  /*  postUser(user: any): Observable<any> {
     return this.http.post(this.url + '/user', user);
@@ -59,6 +73,10 @@ export class ServicioRegistro {
   let headers = this.defaultHeaders;
   headers = headers.set("Content-Type", "application/json"); 
   return this.http.post( this.url2+"/registrar",  body, {headers: headers}); 
+  }
+
+  getNegocios (): Observable<any>{
+    return this.http.get (this.url2 +"/listar");
   }
 
   getNegocioPersona (iduser : any): Observable <any>{

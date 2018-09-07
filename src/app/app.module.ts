@@ -34,6 +34,8 @@ import { AgmCoreModule } from '@agm/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+
 //login con google
 import {
   SocialLoginModule,
@@ -44,6 +46,8 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { RegistrarofertaComponent } from './components/registraroferta/registraroferta.component';
 import { ListarnegociosadminComponent } from './components/listarnegociosadmin/listarnegociosadmin.component';
+import { ListarofertasadminComponent } from './components/listarofertasadmin/listarofertasadmin.component';
+import { EditarpersonaComponent } from './components/editarpersona/editarpersona.component';
 
 
 // Configs 
@@ -81,6 +85,8 @@ export function getAuthServiceConfigs() {
     OfertaComponent,
     RegistrarofertaComponent,
     ListarnegociosadminComponent,
+    ListarofertasadminComponent,
+    EditarpersonaComponent,
    
    
   ],
@@ -95,11 +101,16 @@ export function getAuthServiceConfigs() {
     BrowserAnimationsModule,
     MatDialogModule,
     MatSidenavModule,
+    MatBottomSheetModule,
     AngularFireModule.initializeApp(environment.firebase),  
     AngularFireStorageModule ,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA-HXVa2jtkGfKtIJwisxgC46RaWqC1xuI'
       })                        
+  ],
+  //para el bottom sheet
+  entryComponents: [
+    OfertaComponent
   ],
   providers: [
     ServicioRegistro,

@@ -30,7 +30,7 @@ export class SuperadministradorComponent implements OnInit {
         console.log(Response)
         this.persona = Response.persona;
       }, error => {
-        this.message ="Error en login"
+        this.message ="Error trayendo los datos de este superadmin"
         console.log(this.message)
       }
     );
@@ -45,14 +45,12 @@ export class SuperadministradorComponent implements OnInit {
     this.currentContainer =  'listar';
     break;
     case '3':
-    this.currentContainer =  'registronegocio';
+    this.currentContainer =  'listarnegociosadmin';
     break;
     case '4':
-    this.currentContainer = 'listarnegociospersona';
+    this.currentContainer = 'listarofertasadmin';
     break;
-    case '5':
-    this.currentContainer =  'perfil';
-    break;
+    
       
     
     }
