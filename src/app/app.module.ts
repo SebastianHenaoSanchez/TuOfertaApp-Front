@@ -48,6 +48,7 @@ import { RegistrarofertaComponent } from './components/registraroferta/registrar
 import { ListarnegociosadminComponent } from './components/listarnegociosadmin/listarnegociosadmin.component';
 import { ListarofertasadminComponent } from './components/listarofertasadmin/listarofertasadmin.component';
 import { EditarpersonaComponent } from './components/editarpersona/editarpersona.component';
+import { EditarofertaComponent } from './components/editaroferta/editaroferta.component';
 
 
 // Configs 
@@ -87,6 +88,7 @@ export function getAuthServiceConfigs() {
     ListarnegociosadminComponent,
     ListarofertasadminComponent,
     EditarpersonaComponent,
+    EditarofertaComponent,
    
    
   ],

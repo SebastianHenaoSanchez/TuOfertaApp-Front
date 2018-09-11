@@ -5,8 +5,9 @@
         <thead>
             <tr>
                 <th>Foto</th>
-                <th>Id Oferta</th>
+
                 <th>Id Negocio</th>
+                <th>Tipo de oferta</th>
                 <th>Producto</th>
                 <th>Detalle</th>
                 <th>Valor</th>
@@ -17,8 +18,10 @@
         <tbody>
             <tr *ngFor="let ofer of ofertas">
                 <td> <img class="tab-img" [src]="ofer.foto" /> </td>
-                <td> {{ofer.idoferta}} </td>
+
                 <td> {{ofer.idnegocio}} </td>
+                <td> {{ofer.tipooferta}} </td>
+
                 <td> {{ofer.producto}} </td>
                 <td> {{ofer.detalle}} </td>
                 <td> {{ofer.valor}}</td>

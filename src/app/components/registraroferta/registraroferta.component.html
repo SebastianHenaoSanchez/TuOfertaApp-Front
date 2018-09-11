@@ -39,7 +39,14 @@
                     </div>
                 </div>
 
-
+                <div class="form-group col-lg-12">
+                    <label for="filtro-categoria">Tipo de oferta</label>
+                    <select class="form-control" [(ngModel)]="a.tipooferta" [ngModelOptions]="{standalone: true}" id="filtro-categoria">
+                        <option value="promocion">Promoción</option>
+                        <option value="descuento">Descuento</option>
+                    
+                      </select>
+                </div>
                 <div class="form-group col-lg-12">
                     <label for="InputDetalle">Detalle</label>
                     <input [(ngModel)]="a.detalle" name="detalle" type="text" class="form-control " placeholder="Detalle del producto">

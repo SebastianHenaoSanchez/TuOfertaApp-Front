@@ -6,9 +6,9 @@
     </div> -->
 
     <aside>
-        <ul> <br><br><br>
+        <ul *ngFor="let user of persona"> <br><br><br>
             <li>
-                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('1')">Perfil Super Administrador</a>
+                <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('1')">Perfil Super Administrador {{user.nombre}}</a>
             </li>
             <li>
                 <a style="color:whitesmoke; cursor: pointer"  (click)="switchContainer('2')">Personas Registradas</a>

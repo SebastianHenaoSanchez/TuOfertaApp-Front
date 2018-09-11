@@ -40,7 +40,11 @@ registro: object ={
 persona: this.persona
 };
 
-  constructor(private socialAuthService: AuthService, private route: Router, private fb: FormBuilder, private login:ServicioRegistro, private registrar: ServicioRegistro) { 
+  constructor(private socialAuthService: AuthService,
+     private route: Router, 
+     private fb: FormBuilder, 
+     private login:ServicioRegistro, 
+     private registrar: ServicioRegistro) { 
     this.createform()
   }
 
@@ -96,6 +100,8 @@ persona: this.persona
     })
 
   }
+
+  //para el loggeo con redes
   public socialSignIn(socialPlatform : string) {
     let socialPlatformProvider;
      if(socialPlatform == "facebook"){

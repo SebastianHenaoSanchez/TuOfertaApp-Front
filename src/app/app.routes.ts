@@ -18,9 +18,11 @@ import { OfertaComponent} from './components/oferta/oferta.component';
 import { RegistrarofertaComponent } from './components/registraroferta/registraroferta.component';
 import { ListarnegociosadminComponent } from './components/listarnegociosadmin/listarnegociosadmin.component';
 import { EditarpersonaComponent } from './components/editarpersona/editarpersona.component';
+import { EditarofertaComponent } from './components/editaroferta/editaroferta.component';
 
 
 const APP_ROUTES: Routes = [
+    {path: 'editaroferta/:id', component : EditarofertaComponent},
     {path: 'editarpersona/:id', component : EditarpersonaComponent},
     {path: 'listarnegociosadmin',component: ListarnegociosadminComponent},
     {path: 'registraroferta/:id', component: RegistrarofertaComponent},

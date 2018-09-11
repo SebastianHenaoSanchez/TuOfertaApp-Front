@@ -26,7 +26,7 @@
 
 
         <div class="col-md-12">
-            <form class="form-inline form-filtro">
+            <form [formGroup]='form' class="form-inline form-filtro">
 
                 <div class="form-group">
                     <label for="filtro-data-final">Fecha</label>
@@ -34,30 +34,38 @@
                 </div>
                 <div class="form-group">
                     <label for="filtro-tipo">Tipo de Negocio</label>
-                    <select class="form-control" id="filtro-tipo">
-                    <option value="">Bar</option>
-                    <option value="">Restaurante</option>
-                    <option value="">Comidas Rapidas</option>
-                  </select>
+                    <select class="form-control" formControlName='tiponegocio' name='tiponegocio' id="filtro-tipo">
+                    <option value="Bares">Bar</option>
+                    <option value="Restaurantes">Restaurante</option>
+                    <option value="Comidas Rapidas">Comidas Rapidas</option>
+                    <option value="Otros">Otros</option>
+
+                </select>
                 </div>
                 <div class="form-group">
-                    <label for="filtro-conta">Descuento</label>
-                    <select class="form-control" id="filtro-conta">
-                    <option value=""></option>
+                    <label for="filtro-conta">Tipo de Oferta</label>
+                    <select class="form-control" formControlName='tipooferta' name='tipooferta' id="filtro-conta">
+                    <option value="descuento">Descuento</option>
+                    <option value="promocion">Promoción</option>
+                    
                   </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="filtro-categoria">Promoción</label>
+                    <label for="filtro-categoria"></label>
                     <select class="form-control" id="filtro-categoria">
                     <option value="">2x1</option>
+                    <option value="">50%</option>
                 
                   </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Filtrar</button>
-                    <button type="reset" class="btn btn-default m-2">Limpar</button>
+                    <button type="submit" (click)="filtrar()" class="btn btn-primary">Filtrar</button>
+                    <button type="reset" class="btn btn-default m-2">Limpiar</button>
                 </div>
+                <!--  <div>
+                    <p> {{form.value | json}} </p>
+                </div> -->
             </form>
         </div>
     </div>
@@ -83,7 +91,11 @@
                             <p style="text-decoration: line-through; font-family: serif">Antes: ${{ofer.valor}} </p>
                         </div>
                         <div class="row">
-                            <p style="font-family: serif">Ahora: ${{ofer.descuento}} </p>
+                            <p style="font-family: serif">Descuento: ${{ofer.descuento}} </p>
+                        </div>
+                        <div class="row">
+                            <p style="font-family: serif">Inicio: {{ofer.fechainicio}} - Fin:{{ofer.fechafinal}} </p>
+
                         </div>
 
                         <button type="button" Style="background-color:darkslategray" class="m-2" mat-button (click)="drawer.toggle()">Ubicación<i class="m-2 fas fa-map-marked-alt"></i>
@@ -113,6 +125,7 @@
                         <!-- <agm-marker  [latitude]="lat" [longitude]="lng">-->
                         <agm-info-window>
                             <strong> {{nego.nombreempresa}}</strong>
+                            <div> <img class="m-2 tab-img" [src]="nego.foto" /></div>
                             <p>
                                 {{ nego.tiponegocio }}
                             </p>

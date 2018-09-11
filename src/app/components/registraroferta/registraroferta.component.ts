@@ -36,6 +36,7 @@ export class RegistrarofertaComponent implements OnInit {
     foto:'',
     fechainicio:'',
     fechafin:'',
+    tipooferta:'',
     latitud:'',
     longitud:''
 };
@@ -46,7 +47,10 @@ registro : object = {
 }
 
 
-  constructor(private afStorage: AngularFireStorage, private navegar: Router, private router: ActivatedRoute, private registrar: ServicioRegistro) {
+  constructor(private afStorage: AngularFireStorage, 
+    private navegar: Router, 
+    private router: ActivatedRoute, 
+    private registrar: ServicioRegistro) {
     
 
     this.router.params.subscribe (parametros =>{
