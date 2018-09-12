@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioRegistro } from '../../service/servicio.registro';
+
+//para mandar parametros por la ruta
 import {ActivatedRoute} from '@angular/router'
+
+//para redirigir a otros componentes
 import { Routes, Router } from '../../../../node_modules/@angular/router';
 
 //firebase
@@ -42,14 +46,21 @@ registro: object ={
   negocio: this.negocio
 };
 
-  constructor(private afStorage: AngularFireStorage, private get: ServicioRegistro, private edit: ServicioRegistro, private router : ActivatedRoute, private route: Router) {
-    this.router.params.subscribe (parametros =>{
-      this.idnegocio = parametros.id;
-      this.negoc['idnegocio']= parametros.id;
-      console.log (this.idnegocio);
-      //this.registro["idadmin"]=parametros.id;
-      this.traerNegocio(this.idnegocio);
-    })
+  constructor(private afStorage: AngularFireStorage,
+     private get: ServicioRegistro, 
+     private edit: ServicioRegistro, 
+     private router : ActivatedRoute,
+     private route: Router) {
+
+    
+      
+     this.router.params.subscribe (parametros =>{
+       this.idnegocio = parametros.id;
+       this.negoc['idnegocio']= parametros.id;
+       console.log (this.idnegocio);
+       //this.registro["idadmin"]=parametros.id;
+       this.traerNegocio(this.idnegocio);
+   })
    }
 
 

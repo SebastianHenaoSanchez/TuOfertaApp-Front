@@ -16,7 +16,11 @@ export class OfertaComponent implements OnInit {
   public message: any;
 
 
-  constructor(private deleteofer: ServicioRegistro, private router : ActivatedRoute,private traerOfertas: ServicioRegistro, private navegar: Router) {
+  constructor(private deleteofer: ServicioRegistro,
+    private router : ActivatedRoute,
+    private traerOfertas: ServicioRegistro,
+    private navegar: Router) {
+      
     this.router.params.subscribe (parametros =>{
       this.id = parametros.id;
       console.log(parametros);

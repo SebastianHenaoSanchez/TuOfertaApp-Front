@@ -24,6 +24,7 @@ export class UsuarioComponent implements OnInit {
   oferta: any;
   negocio: any;
   fitrotiponegocio : any;
+  lisnego :any[]=[];
 
   lat: number = 6.264716;
   lng: number = -75.566206;
@@ -79,7 +80,15 @@ export class UsuarioComponent implements OnInit {
     this.traerDatos.getNegocios().subscribe(
       Response =>{
         this.negocio = Response.negocio;
-        console.log(this.negocio);
+        for(let index =0; index < Response.negocio.length; index++){
+          this.traerDatos.getOfertasNegocio(Response.negocio[index].idnegocio).subscribe(
+            Data =>{
+              if(Data.oferta.length > 0){
+                this.lisnego.push(Response.negocio[index]); 
+              }
+            })
+        }
+        //console.log(this.negocio);
       }, error =>{
         console.log("error listando todos los negocios")
       })
@@ -108,7 +117,7 @@ export class UsuarioComponent implements OnInit {
    }
 
    filtro(listanegocios : any, count:any){
-     this.negocio = [];
+     this.lisnego = [];
     for(let index =0; index < count; index++){
     this.filtrado.filtro(listanegocios[index].idnegocio, this.form.value.tipooferta).subscribe(
       Response =>{
@@ -117,13 +126,13 @@ export class UsuarioComponent implements OnInit {
         
         if(Response.oferta.length >= 1){
           //this.negociosfiltrados.push(listanegocios[index]);
-          this.negocio.push(listanegocios[index]); 
+          this.lisnego.push(listanegocios[index]); 
            //console.log("agregando negocio:"+ JSON.stringify(this.negociosfiltrados));
            console.log("negocios:"+ JSON.stringify(this.negocio[index]));
         }
 
       }, error =>{
-        console.log("error cargando")
+        console.log("error cargando o este negocio no tiene ofertas de ese tipo o caducaron")
        
       })
     }

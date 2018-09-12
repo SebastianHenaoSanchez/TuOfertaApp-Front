@@ -33,7 +33,7 @@
                     <button Style="background-color:darkslategray" type="submit" (click)="eliminar(ofer.idoferta)" class="btn btn-dark"><i class="fas fa-times"></i></button>
 
                     <br> <br>
-                    <button Style="background-color:darkslategray" type="submit" class="btn btn-dark"><i class="fas fa-edit"></i></button>
+                    <button Style="background-color:darkslategray" type="submit" [routerLink]="['/editaroferta', ofer.idoferta]" class="btn btn-dark"><i class="fas fa-edit"></i></button>
                 </td>
             </tr>
 
