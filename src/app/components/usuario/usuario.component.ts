@@ -13,11 +13,21 @@ import { OfertaComponent } from '../oferta/oferta.component';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-  public form: FormGroup;
+  public formNegocio: FormGroup;
+  public formTipoOferta: FormGroup;
 
   contador : any;
   showFiller = false;
-  negociosfiltrados:any[] = [];
+  //para los fitros melos
+  tiposNegocios:any[] = ['Bar','Restaurante','Comidas Rapidas', 'Otros'];
+  tiposOfertas:any[] = ['Descuento','Promocion'];
+  tiposDescuentos : any[] =['10%','20%','30%','40%','50%','60%','70%','80%'] ;
+  tiposPromociones: any [] = ['2x1','cumpleaños','hora feliz','otros'];
+  seleccionado: any = [false,false];
+  listaNegocioSeleccionados :any []=[];
+  listaTipoOfertasSeleccionadas : any []=[];
+
+
   id : any;
   message: any;
   persona: any[] = [];
@@ -41,7 +51,8 @@ export class UsuarioComponent implements OnInit {
     this.traerUsuario();
     //this.ofertas();
     this.negocios();
-    this.createform();
+    this.createformNegocio();
+    this.createformTipoOferta();
   }
 
   ngOnInit() {
@@ -94,14 +105,63 @@ export class UsuarioComponent implements OnInit {
       })
    }
 
-  createform(){
-    this.form = this.formulario.group({
-      tiponegocio:[''],
-      tipooferta: ['']
+  createformNegocio(){
+    this.formNegocio = this.formulario.group({
+      //tiponegocio:[''],
+     // tipooferta: [''],
+      tipoComidas:[''],
+      tipoBar:[''],
+      tipoRestaurante:[''],
+      tipoOtros:['']
 
     })
   }
-   filtrar (){
+
+  createformTipoOferta(){
+    this.formTipoOferta = this.formulario.group({
+      //tiponegocio:[''],
+     // tipooferta: [''],
+      promocion:[''],
+      descuento:[''],
+      
+
+    })
+  }
+
+    filtrar(){
+      this.llenarSelecciones();
+    }
+
+    llenarSelecciones(){
+      if(this.formNegocio.value.tipoComidas){
+        this.listaNegocioSeleccionados.push('Comidas Rapidas');
+      }if (this.formNegocio.value.tipoOtros){
+        this.listaNegocioSeleccionados.push('Otros');
+      }if(this.formNegocio.value.tipoBar){
+        this.listaNegocioSeleccionados.push('Bares');
+      }if (this.formNegocio.value.tipoRestaurante){
+        this.listaNegocioSeleccionados.push('Restaurantes');
+      }
+
+      for (let i=0 ; i< this.listaNegocioSeleccionados.length ; i ++){
+        console.log("negocio"+i+": "+this.listaNegocioSeleccionados[i]);
+      }
+
+      if(this.formTipoOferta.value.promocion){
+        this.listaTipoOfertasSeleccionadas.push('promocion')
+      }
+      if(this.formTipoOferta.value.descuento){
+        this.listaTipoOfertasSeleccionadas.push('descuento')
+      }
+
+      for (let i=0 ; i< this.listaTipoOfertasSeleccionadas.length ; i ++){
+        console.log("oferta"+i+": "+this.listaTipoOfertasSeleccionadas[i]);
+      }
+      this.listaTipoOfertasSeleccionadas = []
+      this.listaNegocioSeleccionados = [];
+    }
+  //filtrado con una seleccion
+ /*   filtrar (){
    
     this.filtrado.getTipoNegocio(this.form.value.tiponegocio).subscribe(
       Response => {
@@ -137,5 +197,5 @@ export class UsuarioComponent implements OnInit {
       })
     }
   
-   }
+   } */
 }

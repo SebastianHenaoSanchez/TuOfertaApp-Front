@@ -1,0 +1,8 @@
+#navbarNav {
+    text-align: right;
+}
+
+#navbarNav>ul {
+    width: 100% !important;
+    flex-direction: column-reverse !important;
+}

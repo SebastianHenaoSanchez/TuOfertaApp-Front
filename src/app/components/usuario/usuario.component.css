@@ -1,6 +1,16 @@
-agm-map {
-    height: 730px;
+body {
+    height: 100%;
     width: 100%;
+}
+
+agm-map {
+    height: 660px;
+    width: 100%;
+}
+
+.drawer-container {
+    height: 100%;
+    width: 100%
 }
 
 h2 {
@@ -53,4 +63,25 @@ h2 {
 
 .form-filtro .form-nowrap {
     white-space: nowrap;
+}
+
+.flotante {
+    position: absolute;
+    z-index: 99;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.897);
+    font-size: smaller;
+    width: 150px;
+}
+
+.filtrado {
+    top: 60px;
+    right: 10px;
+}
+
+.columna-filtros {
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+    text-align: left;
 }

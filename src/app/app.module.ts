@@ -35,6 +35,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
 
 //login con google
 import {
@@ -106,6 +110,10 @@ export function getAuthServiceConfigs() {
     MatBottomSheetModule,
     AngularFireModule.initializeApp(environment.firebase),  
     AngularFireStorageModule ,
+    MatCheckboxModule,
+    MatCardModule,
+    MatSelectModule,
+    MatButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA-HXVa2jtkGfKtIJwisxgC46RaWqC1xuI'
       })                        

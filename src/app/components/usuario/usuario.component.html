@@ -1,28 +1,5 @@
-<!-- <div Style="padding-top: 10px" align="center" class="row">
-    <div class="col-lg-4 " *ngFor="let user of persona">
-        <h2>
-            Bienvenido Usuari@ {{persona[0].nombre}} </h2>
-
-
-
-
-    </div>
-    <div class="col-lg-8">
-        <agm-map [latitude]="lat"  [longitude]="lng"  [zoom]="15">
-
-            <agm-marker *ngFor="let nego of oferta"  [latitude]="+nego.latitud"  [longitude]="+nego.longitud">
-                <! <agm-marker  [latitude]="lat" [longitude]="lng">
-                <agm-info-window>
-                    <strong>{{nego.detalle}} en {{nego.producto}}</strong>
-                </agm-info-window>
-                </agm-marker>
-
-                </agm-map>
-    </div>
-</div> -->
-
 <body>
-    <div class="row">
+    <!-- Filtrado con una seleccion <div class="row">
 
 
         <div class="col-md-12">
@@ -63,13 +40,11 @@
                     <button type="submit" (click)="filtrar()" class="btn btn-primary">Filtrar</button>
                     <button type="reset" (click)="negocios()" class="btn btn-default m-2">Limpiar</button>
                 </div>
-                <!--  <div>
-                    <p> {{form.value | json}} </p>
-                </div> -->
+               
             </form>
-        </div>
-    </div>
-    <mat-drawer-container class="" autosize>
+        </div> 
+    </div>-->
+    <mat-drawer-container class="drawer-container" autosize>
         <mat-drawer #drawer class="sidenav" mode="side">
 
             <div class="  col-lg-12 " *ngFor="let user of persona">
@@ -104,41 +79,111 @@
 
                 </ul>
             </div>
+
             <!-- <p *ngIf="showFiller"></p> -->
             <!-- <button (click)="showFiller = !showFiller" mat-raised-button>
             Toggle extra text
           </button> -->
         </mat-drawer>
+        <mat-drawer-content>
 
-        <!--  <div class="row  boton-sidenav-content">
+            <!--  <div class="row  boton-sidenav-content">
         <button type="button" mat-button (click)="drawer.toggle()">
             <i class="fas fa-binoculars"></i>
           </button>
 
     </div> -->
-        <div Style="padding-top: 10px" align="center" class="row">
+            <div style="padding-top: 10px; height: 100%; width: 100%" align="center">
 
-            <div class="col-lg-12">
-                <agm-map [latitude]="lat"  [longitude]="lng"  [zoom]="15">
+                <div class="col-lg-12" style="height: 100%; width: 100%;">
+                    <agm-map [latitude]="lat"  [longitude]="lng"  [zoom]="15">
 
-                    <agm-marker *ngFor="let nego of lisnego"  [latitude]="+nego.latitud"  [longitude]="+nego.longitud">
-                        <!-- <agm-marker  [latitude]="lat" [longitude]="lng">-->
-                        <agm-info-window>
-                            <strong> {{nego.nombreempresa}}</strong>
-                            <div> <img class="m-2 tab-img" [src]="nego.foto" /></div>
-                            <p>
-                                {{ nego.tiponegocio }}
-                            </p>
-                            <div>
-                                <button (click)="drawer.toggle()" (click)="ofertas(nego.idnegocio)" mat-raised-button color="primary">Ver ofertas  <i class="fas fa-binoculars"></i></button>
+                        <agm-marker *ngFor="let nego of lisnego"  [latitude]="+nego.latitud"  [longitude]="+nego.longitud">
+                            <!-- <agm-marker  [latitude]="lat" [longitude]="lng">-->
+                            <agm-info-window>
+                                <strong> {{nego.nombreempresa}}</strong>
+                                <div> <img class="m-2 tab-img" [src]="nego.foto" /></div>
+                                <p>
+                                    {{ nego.tiponegocio }}
+                                </p>
+                                <div>
+                                    <button (click)="drawer.toggle()" (click)="ofertas(nego.idnegocio)" mat-raised-button color="primary">Ver ofertas  <i class="fas fa-binoculars"></i></button>
 
+                                </div>
+                            </agm-info-window>
+                            </agm-marker>
+
+                            </agm-map>
+                            <div class="container">
+                                <p> {{formNegocio.value | json}} </p>
                             </div>
-                        </agm-info-window>
-                        </agm-marker>
+                            <div class="container">
+                                <p> {{formTipoOferta.value | json}} </p>
+                            </div>
+                            <mat-card class="flotante filtrado">
+                                <mat-card-title align="center"><small>Filtrado</small></mat-card-title>
+                                <mat-card-subtitle align="center">Tipos de negocio</mat-card-subtitle>
 
-                        </agm-map>
+                                <mat-card-content [formGroup]="formNegocio">
+                                    <section class="columna-filtros">
+                                        <mat-checkbox formControlName="tipoBar">Bar</mat-checkbox>
+                                    </section>
+                                    <section class="columna-filtros">
+                                        <mat-checkbox formControlName="tipoRestaurante">Restaurante</mat-checkbox>
+                                    </section>
+                                    <section class="columna-filtros">
+                                        <mat-checkbox formControlName="tipoComidas">Comidas Rapidas</mat-checkbox>
+                                    </section>
+                                    <section class="columna-filtros">
+                                        <mat-checkbox formControlName="tipoOtros">Otros</mat-checkbox>
+                                    </section>
+                                </mat-card-content>
+                                <mat-card-subtitle align="center">Tipos de oferta</mat-card-subtitle>
+
+                                <mat-card-content [formGroup]="formTipoOferta">
+                                    <section class="columna-filtros">
+                                        <mat-checkbox formControlName="descuento">Descuento</mat-checkbox>
+                                    </section>
+                                    <section class="columna-filtros">
+                                        <mat-checkbox formControlName="promocion">Promocion</mat-checkbox>
+                                    </section>
+                                </mat-card-content>
+
+                                <mat-card-content *ngIf="formTipoOferta.value.descuento">
+                                    <mat-card-subtitle align="center">Tipos de descuento</mat-card-subtitle>
+                                    <section class="columna-filtros">
+                                        <mat-select placeholder="Tipo de descuento">
+                                            <mat-option>Todos los tipos</mat-option>
+                                            <mat-option *ngFor="let tipoD of tiposDescuentos" [value]="tipoD">
+                                                {{tipoD}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </section>
+                                </mat-card-content>
+
+                                <mat-card-content *ngIf="formTipoOferta.value.promocion">
+                                    <mat-card-subtitle align="center">Tipos de promoción</mat-card-subtitle>
+                                    <section class="columna-filtros">
+                                        <mat-select placeholder="Tipo de promoción">
+                                            <mat-option>Todos los tipos</mat-option>
+                                            <mat-option *ngFor="let tipoO of tiposPromociones" [value]="tipoO">
+                                                {{tipoO}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </section>
+                                </mat-card-content>
+
+                                <mat-card-actions align="center">
+                                    <button mat-button (click)="filtrar()"><small>Filtrar</small></button>
+                                    <button mat-button><small>Limpiar</small></button>
+
+                                </mat-card-actions>
+
+
+                            </mat-card>
+                </div>
             </div>
-        </div>
+        </mat-drawer-content>
 
     </mat-drawer-container>
 </body>

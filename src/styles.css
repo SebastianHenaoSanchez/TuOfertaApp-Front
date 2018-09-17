@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body {
+    height: 100%;
+    max-width: 100%;
+}
+
 .animacion {
     -webkit-animation-duration: 5s;
     animation-duration: 5s;
