@@ -26,6 +26,8 @@ export class UsuarioComponent implements OnInit {
   seleccionado: any = [false,false];
   listaNegocioSeleccionados :any []=[];
   listaTipoOfertasSeleccionadas : any []=[];
+  promocionSeleccionada : any []= [];
+  negocioSeleccionado : any [] = [];
 
 
   id : any;
@@ -159,6 +161,8 @@ export class UsuarioComponent implements OnInit {
       }
       this.listaTipoOfertasSeleccionadas = []
       this.listaNegocioSeleccionados = [];
+      console.log("array ofertas seleccionadas: "+this.listaTipoOfertasSeleccionadas.length);
+      console.log("tamaño negocios seleccionados: "+ this.listaNegocioSeleccionados.length);
     }
   //filtrado con una seleccion
  /*   filtrar (){
